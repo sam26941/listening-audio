@@ -7,15 +7,15 @@
   <style>
     body { font-family: Arial, sans-serif; padding: 24px; }
     h1 { margin-bottom: 0.5em; }
-    .item { margin-bottom: 16px; }
-    .question-text { display: inline-block; margin-left: 12px; max-width: 70%; }
-    button { padding: 8px 12px; cursor: pointer; }
-    audio { display: block; margin-top: 16px; width: 100%; }
+    .item { margin-bottom: 12px; }
+    button { padding: 10px 16px; cursor: pointer; border-radius: 4px; }
+    audio { display: block; margin-top: 20px; width: 100%; max-width: 640px; }
+    #status { margin-top: 12px; color: #c00; }
   </style>
 </head>
 <body>
   <h1>P5T1 Social Listening Audio Index</h1>
-  <p>Click a question to play the sound.</p>
+  <p>Click a button to play the sound.</p>
   <div id="questions">
     <div class="item">
       <button onclick="playAudio(1)">Play Question 1</button>
@@ -109,17 +109,24 @@
     </div>
   </div>
   <audio id="player" controls preload="none"></audio>
+  <div id="status"></div>
   <script>
-    const links = ["https://drive.google.com/uc?id=17cbOU8yUQIO6ykks1LNJoNyCXab7LuPM&export=download", "https://drive.google.com/uc?id=1dT5jjuKq_eG_yIGs77hIkRU0xT-V8_g0&export=download", "https://drive.google.com/uc?id=1ly5RPZeoEJHEZNJZ4BeW98OacdvSLUhy&export=download", "https://drive.google.com/uc?id=1_RphdzFBdq2Sk1jIw_scq8bAa3h8i9J6&export=download", "https://drive.google.com/uc?id=1lEwrZuXqXPPu6jWmwXnXFxulZ4OhgXDs&export=download", "https://drive.google.com/uc?id=1UbkjZNqxkWQy9f4fFtWgX19ob4Wtl48V&export=download", "https://drive.google.com/uc?id=1eczfEXhBP6n8BzeweZ1rk9qtvotBxUCo&export=download", "https://drive.google.com/uc?id=1c6T4twTzJGh74HZEpK6oPwTYy2srb6-K&export=download", "https://drive.google.com/uc?id=1RCFQ3B9dBz4bQGHtce29GQ0we0L5E3gH&export=download", "https://drive.google.com/uc?id=1IikJkV-N-0WLOzpNg7l3BgqXcf106AhI&export=download", "https://drive.google.com/uc?id=1zFYQDDxZmJ7-Pc1DAhdxZlQRbH_7dtPs&export=download", "https://drive.google.com/uc?id=1349XrhcVIcAT3MPosBY7nRyvMeVOajgI&export=download", "https://drive.google.com/uc?id=1qoz7DvtW7X9BK9812zx8kyw6R2B1Qdho&export=download", "https://drive.google.com/uc?id=1ZKvJeiZBoXbvINKwHMEfEqfgq_ecbSbe&export=download", "https://drive.google.com/uc?id=1GxE2_he4RUZkZzkW5W0y8sm4QoBKfyxj&export=download", "https://drive.google.com/uc?id=1Wvl3V2olM847xyNaMtlfaJ208rwVKBz4&export=download", "https://drive.google.com/uc?id=1MllL9IQUWU2h46WHBa2zQJWuvqAHjMqY&export=download", "https://drive.google.com/uc?id=13HRDHjT0zlQI55S1PHkEVoKIZI3mMDl5&export=download", "https://drive.google.com/uc?id=1P7HXyyOSB3_ziwDSn2aVT6R5pRHbH2wJ&export=download", "https://drive.google.com/uc?id=15PuB1XtbGkoCe_LGKISeWiJNx2Moxx7k&export=download", "https://drive.google.com/uc?id=1T7s_AZbYvYiVkGT_TNDLO-A3aAklwFfy&export=download", "https://drive.google.com/uc?id=1V3-k27qERTghoSjjJbOLTPPMjYjhbno5&export=download", "https://drive.google.com/uc?id=1XzHeiPVdxTmArXqScnIzcgAjNnbGq6wR&export=download", "https://drive.google.com/uc?id=1TJWAJ-F3AuHED3TvnzC4fCXYqoOAGhQK&export=download", "https://drive.google.com/uc?id=1Y5iyZU-4e0v6MxlBr0OV0wNsZLOCsfR-&export=download", "https://drive.google.com/uc?id=1e9sUt8xXdaX1unix-zkDQDki6Tzjubua&export=download", "https://drive.google.com/uc?id=1_Nyh9HPCIyuE5Ws7wBuTieQYJpn4vyaD&export=download", "https://drive.google.com/uc?id=1RLUBJ-FDqdreFVNRO14uahEgiYTXUX2-&export=download", "https://drive.google.com/uc?id=11UGMTyJulSlkFTqsZRkFYoQfGT3MipOQ&export=download", "https://drive.google.com/uc?id=1RX7ws404VfkQ1aoKjO0g5xNWjxX6ZTj9&export=download"];
+    const links = ["question_1.mp3", "question_2.mp3", "question_3.mp3", "question_4.mp3", "question_5.mp3", "question_6.mp3", "question_7.mp3", "question_8.mp3", "question_9.mp3", "question_10.mp3", "question_11.mp3", "question_12.mp3", "question_13.mp3", "question_14.mp3", "question_15.mp3", "question_16.mp3", "question_17.mp3", "question_18.mp3", "question_19.mp3", "question_20.mp3", "question_21.mp3", "question_22.mp3", "question_23.mp3", "question_24.mp3", "question_25.mp3", "question_26.mp3", "question_27.mp3", "question_28.mp3", "question_29.mp3", "question_30.mp3"];
     const player = document.getElementById("player");
+    const status = document.getElementById("status");
     function playAudio(index) {
       const src = links[index - 1];
-      if (!src || src.startsWith("MP3_LINK_")) {
-        alert("Audio links are not set yet. Upload the files first.");
+      if (!src) {
+        status.textContent = "Audio path is not available.";
         return;
       }
+      status.textContent = "";
       player.src = src;
-      player.play();
+      player.load();
+      player.play().catch(function(err) {
+        status.textContent = "Playback blocked or failed: " + err.message;
+        console.error(err);
+      });
     }
   </script>
 </body>
