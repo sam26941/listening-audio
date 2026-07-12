@@ -1,0 +1,8 @@
+<!doctype html><html><body>
+<h2 id=t></h2>
+<audio id=p controls autoplay></audio>
+<script>
+const q=new URLSearchParams(location.search).get("q");
+t.innerText="Question "+q;
+p.src="question_"+q+".mp3";
+</script></body></html>
