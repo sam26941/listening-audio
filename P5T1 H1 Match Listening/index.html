@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P5T1 H1 Match Listening Audio Index</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 24px; }
+    h1 { margin-bottom: 0.5em; }
+    .item { margin-bottom: 12px; }
+    button { padding: 10px 16px; cursor: pointer; border-radius: 4px; }
+    audio { display: block; margin-top: 20px; width: 100%; max-width: 640px; }
+    #status { margin-top: 12px; color: #c00; }
+  </style>
+</head>
+<body>
+  <h1>P5T1 H1 Match Listening Audio Index</h1>
+  <p>Click a button to play the sound.</p>
+  <div id="questions">
+    <div class="item">
+      <button onclick="playAudio(1)">Play Question 1</button>
+    </div>
+    <div class="item">
+      <button onclick="playAudio(2)">Play Question 2</button>
+    </div>
+    <div class="item">
+      <button onclick="playAudio(3)">Play Question 3</button>
+    </div>
+    <div class="item">
+      <button onclick="playAudio(4)">Play Question 4</button>
+    </div>
+    <div class="item">
+      <button onclick="playAudio(5)">Play Question 5</button>
+    </div>
+    <div class="item">
+      <button onclick="playAudio(6)">Play Question 6</button>
+    </div>
+    <div class="item">
+      <button onclick="playAudio(7)">Play Question 7</button>
+    </div>
+    <div class="item">
+      <button onclick="playAudio(8)">Play Question 8</button>
+    </div>
+    <div class="item">
+      <button onclick="playAudio(9)">Play Question 9</button>
+    </div>
+    <div class="item">
+      <button onclick="playAudio(10)">Play Question 10</button>
+    </div>
+  </div>
+  <audio id="player" controls preload="none"></audio>
+  <div id="status"></div>
+  <script>
+    const basePath = location.pathname.substring(0, location.pathname.lastIndexOf('/') + 1);
+    const links = ["question_1.mp3", "question_2.mp3", "question_3.mp3", "question_4.mp3", "question_5.mp3", "question_6.mp3", "question_7.mp3", "question_8.mp3", "question_9.mp3", "question_10.mp3"];
+    const player = document.getElementById("player");
+    const status = document.getElementById("status");
+    function playAudio(index) {
+      const src = links[index - 1];
+      if (!src) {
+        status.textContent = "Audio path is not available.";
+        return;
+      }
+      status.textContent = "";
+      player.src = basePath + src;
+      player.load();
+      player.play().catch(function(err) {
+        status.textContent = "Playback blocked or failed: " + err.message;
+        console.error(err);
+      });
+    }
+  </script>
+</body>
+</html>
